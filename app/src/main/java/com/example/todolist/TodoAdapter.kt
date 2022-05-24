@@ -38,7 +38,7 @@ class TodoAdapter(private var todoList: MutableList<ItemTodo>): RecyclerView.Ada
 
         title.text = item.title
         checked.isChecked = item.checked
-        toggleStrikeThrough(title, checked.isChecked)
+        toggleStrikeThrough(title, item.checked)
         checked.setOnCheckedChangeListener { _, isChecked ->
             toggleStrikeThrough(title, isChecked)
             checked.isChecked = !checked.isChecked

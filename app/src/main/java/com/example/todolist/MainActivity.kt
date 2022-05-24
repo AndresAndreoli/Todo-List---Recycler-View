@@ -24,10 +24,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addItem(v: View){
-       val titleTodo = findViewById<EditText>(R.id.etTodoTitle).text.toString()
-        if (titleTodo.isNotEmpty()){
-            val todo = ItemTodo(titleTodo)
+       val titleTodo = findViewById<EditText>(R.id.etTodoTitle)
+        if (titleTodo.text.toString().isNotEmpty()){
+            val todo = ItemTodo(titleTodo.text.toString())
             todoAdapter.addTodo(todo)
+            titleTodo.text.clear()
         } else {
             Toast.makeText(this, "Add a Todo", Toast.LENGTH_SHORT).show()
         }
