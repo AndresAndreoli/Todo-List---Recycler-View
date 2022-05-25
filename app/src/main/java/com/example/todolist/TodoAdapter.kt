@@ -36,12 +36,13 @@ class TodoAdapter(private var todoList: MutableList<ItemTodo>): RecyclerView.Ada
         val title =  holder.itemView.findViewById<TextView>(R.id.tvTodoTitle)
         val checked =  holder.itemView.findViewById<CheckBox>(R.id.cbDone)
 
+
         title.text = item.title
         checked.isChecked = item.checked
         toggleStrikeThrough(title, item.checked)
         checked.setOnCheckedChangeListener { _, isChecked ->
             toggleStrikeThrough(title, isChecked)
-            checked.isChecked = !checked.isChecked
+            item.checked = !item.checked
         }
     }
 
